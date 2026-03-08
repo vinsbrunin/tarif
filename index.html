@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///Users/julienbrunin/Downloads/tarif_vins_v10.html -->
+<!-- saved from url=(0056)file:///Users/julienbrunin/Downloads/tarif_vins_v13.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -68,8 +68,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
 .ch.on.cr{background:#C4576A;border-color:#C4576A}
 .ch.on.cbu{background:#4A7A3A;border-color:#4A7A3A}
 .ch.on.cd{background:#A07020;border-color:#A07020}
-.dom-row{padding:0 12px 8px;display:none}
-.dom-row.show{display:block}
+.dom-row{padding:0 12px 8px;display:block}
 .dom-sel{width:100%;padding:9px 36px 9px 12px;border-radius:var(--r);border:1.5px solid #DDD4C8;background:var(--cream);color:var(--t1);font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237B1818' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;outline:none}
 .atags{display:none;flex-wrap:wrap;gap:5px;padding:0 12px 8px;background:#fff}
 .atags.show{display:flex}
@@ -91,6 +90,10 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
 .rh h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--wine);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .rh .rl{flex:1;height:1px;background:linear-gradient(to right,rgba(123,24,24,.22),transparent)}
 .rh .rc{font-size:10px;color:var(--t3)}
+.dh2{display:flex;align-items:center;gap:8px;padding:11px 4px 4px;margin-top:4px}
+.dh2 h4{font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;color:var(--t2);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.dh2 .dl{flex:1;height:1px;background:rgba(0,0,0,.08)}
+.dh2 .dc{font-size:10px;color:var(--t3)}
 
 /* Wine card */
 .wc{background:var(--card);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);margin-bottom:7px;overflow:hidden;cursor:pointer;transition:box-shadow .15s}
@@ -152,7 +155,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
 <!-- HEADER -->
 <div class="hd">
   <div class="hd-r1">
-    <div class="brand">Les Vins Brunin-Guillier — <em>Tarif Mars 2026</em></div>
+    <div class="brand">Brunin-Guillier — <em>Mars 2026</em></div>
     <div class="pill" id="pill">936 vins</div>
   </div>
   <div class="mkt">
@@ -225,9 +228,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
   </div>
   <!-- Domaine dropdown -->
   <div class="dom-row" id="domRow">
-    <select class="dom-sel" id="domSel" onchange="setFilter(&#39;domaine&#39;,this.value)">
-      <option value="">— Tous les domaines —</option>
-    </select>
+    <select class="dom-sel" id="domSel" onchange="setFilter(&#39;domaine&#39;,this.value)"><option value="">— Tous les domaines —</option><optgroup label="— Bordeaux —"><option value="VIGNOBLE JEAN LOUIS TROCARD">VIGNOBLE JEAN LOUIS TROCARD</option><option value="JEAN BAPTISTE AUDY">JEAN BAPTISTE AUDY</option><option value="VIGNOBLE LEMAITRE">VIGNOBLE LEMAITRE</option><option value="CHÂTEAU MAGNEAU">CHÂTEAU MAGNEAU</option><option value="VIGNOBLE PAPON">VIGNOBLE PAPON</option><option value="CHÂTEAU FONTENILLE">CHÂTEAU FONTENILLE</option><option value="VIGNOBLE MEYRE">VIGNOBLE MEYRE</option><option value="CHÂTEAU COURONNEAU">CHÂTEAU COURONNEAU</option><option value="CHÂTEAU L&#39;ESCART">CHÂTEAU L'ESCART</option><option value="CHÂTEAU GOMBAUDE - GUILLOT">CHÂTEAU GOMBAUDE - GUILLOT</option></optgroup><optgroup label="— Alsace —"><option value="DOMAINE EUGENE KLIPFEL">DOMAINE EUGENE KLIPFEL</option><option value="DOMAINE BADER">DOMAINE BADER</option><option value="DOMAINE ETIENNE LOEW">DOMAINE ETIENNE LOEW</option></optgroup><optgroup label="— Bourgogne —"><option value="DOMAINE DE LA CROIX SENAILLET">DOMAINE DE LA CROIX SENAILLET</option><option value="DOMAINE THIBERT">DOMAINE THIBERT</option><option value="DOMAINE SYLVAIN DUSSORT">DOMAINE SYLVAIN DUSSORT</option><option value="DOMAINE SEBASTIEN CHRISTOPHE">DOMAINE SEBASTIEN CHRISTOPHE</option><option value="DOMAINE D&#39;ARDHUY - Allocation">DOMAINE D'ARDHUY - Allocation</option><option value="DOMAINE SYLVAIN PATAILLE">DOMAINE SYLVAIN PATAILLE</option><option value="DOMAINE CHRISTOPHE &amp; FILS">DOMAINE CHRISTOPHE &amp; FILS</option></optgroup><optgroup label="— Jura —"><option value="DOMAINE DE SAVAGNY">DOMAINE DE SAVAGNY</option><option value="DOMAINE BERTHET - BONDET">DOMAINE BERTHET - BONDET</option></optgroup><optgroup label="— Val de Loire —"><option value="DOMAINE LES PINS">DOMAINE LES PINS</option><option value="DOMAINE CHARDON">DOMAINE CHARDON</option><option value="DOMAINE DE LA NOBLAIE">DOMAINE DE LA NOBLAIE</option><option value="DOMAINE DU PETIT CLOCHER">DOMAINE DU PETIT CLOCHER</option><option value="DOMAINE MERCIER">DOMAINE MERCIER</option><option value="DOMAINE LOIC MAHE">DOMAINE LOIC MAHE</option><option value="DOMAINE SEROL">DOMAINE SEROL</option><option value="DOMAINE DES BERIOLES">DOMAINE DES BERIOLES</option><option value="VIGNOBLE GUNTHER CHEREAU">VIGNOBLE GUNTHER CHEREAU</option><option value="DOMAINE VACHERON - Allocation">DOMAINE VACHERON - Allocation</option><option value="DOMAINE FOURNIER">DOMAINE FOURNIER</option><option value="DOMAINE PELLE">DOMAINE PELLE</option><option value="CHATEAU FAVRAY">CHATEAU FAVRAY</option><option value="DOMAINE DIDIER DAGUENEAU - Allocation">DOMAINE DIDIER DAGUENEAU - Allocation</option><option value="DOMAINE ANTOINE SANZAY">DOMAINE ANTOINE SANZAY</option><option value="DOMAINE DES ROCHES NEUVES - Allocation">DOMAINE DES ROCHES NEUVES - Allocation</option><option value="DOMAINE GUIBERTEAU - Allocation">DOMAINE GUIBERTEAU - Allocation</option><option value="DOMAINE DES NERLEUX">DOMAINE DES NERLEUX</option><option value="DOMAINE DES CLOSIERS - Allocation">DOMAINE DES CLOSIERS - Allocation</option></optgroup><optgroup label="— Beaujolais —"><option value="DOMAINE DOMINIQUE PIRON">DOMAINE DOMINIQUE PIRON</option><option value="CLOS DE LA ROILETTE">CLOS DE LA ROILETTE</option><option value="DOMAINE PASCALE GRANGER">DOMAINE PASCALE GRANGER</option><option value="DOMAINE YOHAN LARDY">DOMAINE YOHAN LARDY</option></optgroup><optgroup label="— Savoie —"><option value="DOMAINE JEAN PERRIER &amp; FILS">DOMAINE JEAN PERRIER &amp; FILS</option><option value="DOMAINE DES ARDOISIERES">DOMAINE DES ARDOISIERES</option></optgroup><optgroup label="— Sud-Ouest —"><option value="DOMAINE DE MENARD">DOMAINE DE MENARD</option><option value="DOMAINE CHIROULET">DOMAINE CHIROULET</option><option value="FAMILLE LAPLACE">FAMILLE LAPLACE</option><option value="CHÂTEAU SAINT LOUIS">CHÂTEAU SAINT LOUIS</option><option value="VIGNOBLE DU BRULHOIS">VIGNOBLE DU BRULHOIS</option><option value="CHATEAU PUY SERVAIN">CHATEAU PUY SERVAIN</option><option value="DOMAINE ROTIER">DOMAINE ROTIER</option><option value="CHATEAU HAUT MONPLAISIR">CHATEAU HAUT MONPLAISIR</option><option value="CAMIN LARREDYA">CAMIN LARREDYA</option></optgroup><optgroup label="— Rhône Nord —"><option value="DOMAINE GEORGES VERNAY">DOMAINE GEORGES VERNAY</option><option value="DOMAINE GRAEME &amp; JULIE BOTT">DOMAINE GRAEME &amp; JULIE BOTT</option><option value="Les Côte-Rôtie parcellaires - Allocation">Les Côte-Rôtie parcellaires - Allocation</option><option value="DOMAINE STEPHANE OGIER">DOMAINE STEPHANE OGIER</option><option value="DOMAINE GILLES ROBIN">DOMAINE GILLES ROBIN</option><option value="DOMAINE COMBIER">DOMAINE COMBIER</option><option value="DOMAINE DU COULET">DOMAINE DU COULET</option></optgroup><optgroup label="— Rhône Sud —"><option value="CLOS DU CAILLOU">CLOS DU CAILLOU</option><option value="DOMAINE DE PANISSE">DOMAINE DE PANISSE</option><option value="DOMAINE DE LA BARROCHE">DOMAINE DE LA BARROCHE</option><option value="CLOS DE L&#39;ORATOIRE DES PAPES">CLOS DE L'ORATOIRE DES PAPES</option><option value="DOMAINE DES ESCARAVAILLES">DOMAINE DES ESCARAVAILLES</option><option value="DOMAINE D&#39;OUREA">DOMAINE D'OUREA</option><option value="CLOS DES CAZAUX">CLOS DES CAZAUX</option><option value="DOMAINE LES BAIES GOUTS">DOMAINE LES BAIES GOUTS</option><option value="DOMAINE DES BOSQUETS - Allocation">DOMAINE DES BOSQUETS - Allocation</option><option value="DOMAINE RASPAIL AY - Allocation">DOMAINE RASPAIL AY - Allocation</option><option value="DOMAINE MABY">DOMAINE MABY</option><option value="CHÂTEAU JUVENAL">CHÂTEAU JUVENAL</option><option value="DOMAINE HELENE BLEUZEN">DOMAINE HELENE BLEUZEN</option><option value="CHÂTEAU DE NAGES">CHÂTEAU DE NAGES</option><option value="DOMAINE MICHEL GASSIER">DOMAINE MICHEL GASSIER</option><option value="FAMILLE RICOME">FAMILLE RICOME</option><option value="CLOS DES CENTENAIRES">CLOS DES CENTENAIRES</option><option value="DOMAINE D&#39;ABRIGEON - Allocation">DOMAINE D'ABRIGEON - Allocation</option><option value="DOMAINE LEFEBVRE ANSELME">DOMAINE LEFEBVRE ANSELME</option><option value="DOMAINE JABOULET">DOMAINE JABOULET</option><option value="COSTE DU PUY">COSTE DU PUY</option><option value="DOMAINE DE LA GRANDE OURSE">DOMAINE DE LA GRANDE OURSE</option><option value="DOMAINE DE LA BASTIDE">DOMAINE DE LA BASTIDE</option><option value="CELLIER DES CHARTREUX">CELLIER DES CHARTREUX</option><option value="CHATEAU FONT BARRIELE">CHATEAU FONT BARRIELE</option></optgroup><optgroup label="— Languedoc —"><option value="CLOS CENTEILLES">CLOS CENTEILLES</option><option value="DOMAINE CAILHOL GAUTRAN">DOMAINE CAILHOL GAUTRAN</option><option value="AUBERT &amp; MATHIEU">AUBERT &amp; MATHIEU</option><option value="DOMAINE PICARO&#39;S">DOMAINE PICARO'S</option><option value="DOMAINE DE CASTELNAU">DOMAINE DE CASTELNAU</option><option value="CHATEAU BOUISSET">CHATEAU BOUISSET</option><option value="DOMAINE DE MONTCALMES - Allocation">DOMAINE DE MONTCALMES - Allocation</option><option value="DOMAINE SAINT-SYLVESTRE">DOMAINE SAINT-SYLVESTRE</option><option value="MAS DE L ECRITURE">MAS DE L ECRITURE</option><option value="DOMAINE DE LA BARTHASSADE">DOMAINE DE LA BARTHASSADE</option><option value="CASSAGNE ET VITAILLES  - Allocation">CASSAGNE ET VITAILLES  - Allocation</option><option value="DOMAINE LES EMINADES">DOMAINE LES EMINADES</option><option value="DOMAINE MARION PLA">DOMAINE MARION PLA</option><option value="CHÂTEAU PUECH HAUT">CHÂTEAU PUECH HAUT</option><option value="DOMAINE DE LA PROVENQUIERE">DOMAINE DE LA PROVENQUIERE</option><option value="MAS BRUGUIERE">MAS BRUGUIERE</option><option value="DOMAINE DES DEUX CLES">DOMAINE DES DEUX CLES</option><option value="DOMAINE ABBAYE SYLVA PLANA">DOMAINE ABBAYE SYLVA PLANA</option><option value="Domaine Delmas">Domaine Delmas</option><option value="CHESNELONG  - Allocation">CHESNELONG  - Allocation</option><option value="LOUIS ESCHENAUER">LOUIS ESCHENAUER</option><option value="CASSAGNES ET VITAILLES  - Allocation">CASSAGNES ET VITAILLES  - Allocation</option></optgroup><optgroup label="— Roussillon —"><option value="DOMAINE DEPEYRE">DOMAINE DEPEYRE</option><option value="DOMAINE DOM BRIAL">DOMAINE DOM BRIAL</option></optgroup><optgroup label="— Provence —"><option value="DOMAINE DE L&#39;HEURE BLEU">DOMAINE DE L'HEURE BLEU</option><option value="DOMAINE DE LA MADRAGUE">DOMAINE DE LA MADRAGUE</option></optgroup><optgroup label="— Espagne —"><option value="VINTAE">VINTAE</option><option value="FINCA LA ESTACADA">FINCA LA ESTACADA</option><option value="LA MUNDIAL">LA MUNDIAL</option></optgroup><optgroup label="— Corse —"><option value="DOMAINE VACCELLI">DOMAINE VACCELLI</option><option value="DOMAINE GIUDICELLI">DOMAINE GIUDICELLI</option><option value="DOMAINE ABBATUCCI">DOMAINE ABBATUCCI</option></optgroup><optgroup label="— Italie —"><option value="AZIENDA AGRICOLA MOLINO">AZIENDA AGRICOLA MOLINO</option><option value="TENUTA PATRUNO PERNIOLA">TENUTA PATRUNO PERNIOLA</option><option value="FEUDO ARANCIO">FEUDO ARANCIO</option><option value="QUETO">QUETO</option><option value="CASTEL FIRMIAN">CASTEL FIRMIAN</option><option value="LUIGI RIGHETTI">LUIGI RIGHETTI</option><option value="AZIENDA AGRICOLA CHIUSA GRANDE">AZIENDA AGRICOLA CHIUSA GRANDE</option><option value="CAPARZO">CAPARZO</option><option value="LA MASSA">LA MASSA</option><option value="BRAIDA">BRAIDA</option><option value="SASSICAIA">SASSICAIA</option><option value="CAIAROSSA">CAIAROSSA</option><option value="VIRNA BORGOGNO">VIRNA BORGOGNO</option><option value="DONELLI 1915">DONELLI 1915</option></optgroup><optgroup label="— Portugal —"><option value="CASA SANTOS LIMA">CASA SANTOS LIMA</option></optgroup><optgroup label="— Chili —"><option value="VINA VALLE SECRETO">VINA VALLE SECRETO</option></optgroup><optgroup label="— Argentine —"><option value="PUNTO FINAL">PUNTO FINAL</option></optgroup><optgroup label="— Autriche —"><option value="WEINGUT LUDWIG NEUMAYER">WEINGUT LUDWIG NEUMAYER</option></optgroup><optgroup label="— Grèce —"><option value="KTIMA LANTIDES">KTIMA LANTIDES</option></optgroup><optgroup label="— Nouvelle-Zélande —"><option value="NAU MAI">NAU MAI</option></optgroup><optgroup label="— Maroc —"><option value="DOMAINE DES OULED THALEB">DOMAINE DES OULED THALEB</option></optgroup><optgroup label="— Liban —"><option value="CHÂTEAU KEFRAYA">CHÂTEAU KEFRAYA</option></optgroup><optgroup label="— Champagne —"><option value="CHASSENAY D&#39;ARCE">CHASSENAY D'ARCE</option><option value="DRAPPIER">DRAPPIER</option><option value="LARMANDIER BERNIER  - Allocation">LARMANDIER BERNIER  - Allocation</option><option value="DE SOUSA - Allocation">DE SOUSA - Allocation</option><option value="RUINART">RUINART</option><option value="KRUG">KRUG</option><option value="VEUVE CLICQUOT">VEUVE CLICQUOT</option><option value="DOM PERIGNON">DOM PERIGNON</option></optgroup><optgroup label="— Belgique —"><option value="DOMAINE DE BIOUL">DOMAINE DE BIOUL</option><option value="Les Bulles de Bioul">Les Bulles de Bioul</option><option value="VIGNOBLE DES AGAISES">VIGNOBLE DES AGAISES</option><option value="DOMAINE DU CHANT D&#39;EOLE">DOMAINE DU CHANT D'EOLE</option><option value="DOMAINE MONT DES ANGES">DOMAINE MONT DES ANGES</option></optgroup></select>
   </div>
   <!-- Couleur -->
   <div class="fr">
@@ -33139,10 +33140,32 @@ function render(){
       const h=document.createElement('div');h.className='rh';
       h.innerHTML=`<h3>${RL[region]||region}</h3><div class="rl"></div><span class="rc">${gr[region].length}</span>`;
       el.appendChild(h);
-      gr[region].forEach((w,i)=>{const c=mkCard(w);c.style.animationDelay=(i*.014)+'s';el.appendChild(c);});
+      if(F.region){
+        const gd={},od=[];
+        gr[region].forEach(w=>{const k=w.domaine||'';if(!gd[k]){gd[k]=[];od.push(k);}gd[k].push(w);});
+        od.forEach(dom=>{
+          const dh=document.createElement('div');dh.className='dh2';
+          dh.innerHTML=`<h4>${dom||'—'}</h4><div class="dl"></div><span class="dc">${gd[dom].length}</span>`;
+          el.appendChild(dh);
+          gd[dom].forEach((w,i)=>{const c=mkCard(w);c.style.animationDelay=(i*.014)+'s';el.appendChild(c);});
+        });
+      } else {
+        gr[region].forEach((w,i)=>{const c=mkCard(w);c.style.animationDelay=(i*.014)+'s';el.appendChild(c);});
+      }
     });
   } else {
-    list.forEach((w,i)=>{const c=mkCard(w);c.style.animationDelay=(i*.012)+'s';el.appendChild(c);});
+    if(F.region){
+      const gd={},od=[];
+      list.forEach(w=>{const k=w.domaine||'';if(!gd[k]){gd[k]=[];od.push(k);}gd[k].push(w);});
+      od.forEach(dom=>{
+        const dh=document.createElement('div');dh.className='dh2';
+        dh.innerHTML=`<h4>${dom||'—'}</h4><div class="dl"></div><span class="dc">${gd[dom].length}</span>`;
+        el.appendChild(dh);
+        gd[dom].forEach((w,i)=>{const c=mkCard(w);c.style.animationDelay=(i*.014)+'s';el.appendChild(c);});
+      });
+    } else {
+      list.forEach((w,i)=>{const c=mkCard(w);c.style.animationDelay=(i*.012)+'s';el.appendChild(c);});
+    }
   }
 }
 
@@ -33220,11 +33243,29 @@ function setFilter(type,val){
 }
 
 function updateDomDrop(region){
-  const row=document.getElementById('domRow'),sel=document.getElementById('domSel');
-  const doms=(region&&RD[region])||[];
-  if(!region||!doms.length){row.classList.remove('show');return;}
-  sel.innerHTML='<option value="">— Tous les domaines —</option>'+doms.map(d=>`<option value="${d}">${d}</option>`).join('');
-  sel.value='';row.classList.add('show');
+  const sel=document.getElementById('domSel');
+  const prev=sel.value;
+  const RL_FR={BORDEAUX:'Bordeaux',BOURGOGNE:'Bourgogne',ALSACE:'Alsace',JURA:'Jura',
+    'VAL DE LOIRE':'Val de Loire','SUD-OUEST':'Sud-Ouest',BEAUJOLAIS:'Beaujolais',
+    SAVOIE:'Savoie','VALLEE DU RHONE NORD':'Rhône Nord','VALLEE DU RHONE SUD':'Rhône Sud',
+    LANGUEDOC:'Languedoc',ROUSSILLON:'Roussillon',PROVENCE:'Provence',
+    CHAMPAGNE:'Champagne',CREMANT:'Crémant',BULLES:'Bulles',
+    ESPAGNE:'Espagne',CAVA:'Cava',ITALIE:'Italie',PROSECCO:'Prosecco',
+    PORTUGAL:'Portugal',CORSE:'Corse',BELGIQUE:'Belgique',
+    ARMENIE:'Arménie',CHILI:'Chili',ARGENTINE:'Argentine',AUTRICHE:'Autriche',
+    GRECE:'Grèce','NOUVELLE ZELANDE':'Nouvelle-Zélande',MAROC:'Maroc',LIBAN:'Liban'};
+  let html='<option value="">— Tous les domaines —</option>';
+  const regions=region?[region]:Object.keys(RD);
+  regions.forEach(r=>{
+    const doms=RD[r]||[];
+    if(!doms.length)return;
+    const label=RL_FR[r]||r;
+    html+=`<optgroup label="— ${label} —">`;
+    doms.forEach(d=>{html+=`<option value="${d}">${d}</option>`;});
+    html+='</optgroup>';
+  });
+  sel.innerHTML=html;
+  sel.value=prev&&sel.querySelector(`option[value="${prev}"]`)?prev:'';
 }
 
 function updATags(){
@@ -33243,7 +33284,7 @@ function updATags(){
 function removeFilter(type){
   if(type==='search'){search='';document.getElementById('si').value='';document.getElementById('sx').classList.remove('show');}
   else if(type==='price'){priceRangeMin=priceMin;priceRangeMax=priceMax;updateGaugeUI();}
-  else{F[type]='';document.querySelectorAll(`[data-ft="${type}"]`).forEach(b=>b.classList.toggle('on',b.dataset.fv===''));if(type==='region'){F.domaine='';document.getElementById('domRow').classList.remove('show');}}
+  else{F[type]='';document.querySelectorAll(`[data-ft="${type}"]`).forEach(b=>b.classList.toggle('on',b.dataset.fv===''));if(type==='region'){F.domaine='';updateDomDrop('');}}
   updATags();render();
 }
 
@@ -33251,7 +33292,7 @@ function resetAll(){
   search='';F={region:'',domaine:'',couleur:'',format:''};
   priceRangeMin=priceMin;priceRangeMax=priceMax;
   document.getElementById('si').value='';document.getElementById('sx').classList.remove('show');
-  document.getElementById('domRow').classList.remove('show');
+  updateDomDrop('');
   document.querySelectorAll('[data-ft]').forEach(b=>b.classList.toggle('on',b.dataset.fv===''));
   updateGaugeUI();updATags();render();
 }
@@ -33267,6 +33308,7 @@ document.getElementById('si').addEventListener('input',function(){
 // ─ INIT ─
 initGauge();
 setupGaugeDrag();
+updateDomDrop('');
 render();
 </script>
 
