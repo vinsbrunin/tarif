@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///Users/julienbrunin/Downloads/tarif_vins_v29.html -->
+<!-- saved from url=(0056)file:///Users/julienbrunin/Downloads/tarif_vins_v30.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -60,6 +60,8 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
 .fr{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:8px 12px}
 .fr::-webkit-scrollbar{display:none}
 .ch{flex-shrink:0;padding:5px 11px;border-radius:17px;border:1.5px solid #DDD4C8;background:#fff;color:var(--t2);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:all .15s;font-family:'Outfit',sans-serif}
+.mil-sel{flex-shrink:0;height:29px;padding:0 22px 0 10px;border-radius:17px;border:1.5px solid #DDD4C8;background:#fff url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 7px center;color:var(--t2);font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;appearance:none;-webkit-appearance:none}
+.mil-sel.on{border-color:var(--wine-d);background-color:rgba(74,12,12,.07);color:var(--wine-d);font-weight:600}
 .ch.on{background:var(--wine);border-color:var(--wine);color:#fff}
 .ch.on.cb{background:#7D6840;border-color:#7D6840}
 .ch.on.cr{background:#C4576A;border-color:#C4576A}
@@ -265,6 +267,28 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
   <!-- Bio + Format -->
   <div class="fr">
     <button class="ch cbu" id="bioBtn" onclick="toggleBio()">🌿 Bio</button>
+    <select class="mil-sel" id="milSel" onchange="setFilter(&#39;millesime&#39;,this.value)">
+      <option value="">Millésime</option>
+      <option value="NV">NV</option>
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2008">2008</option>
+      <option value="1999">1999</option>
+    </select>
     <button class="ch on" data-ft="format" data-fv="" onclick="setFilter(&#39;format&#39;,&#39;&#39;)">Tous formats</button>
     <button class="ch" data-ft="format" data-fv="0.375" onclick="setFilter(&#39;format&#39;,&#39;0.375&#39;)">37,5 cl</button>
     <button class="ch" data-ft="format" data-fv="0.75" onclick="setFilter(&#39;format&#39;,&#39;0.75&#39;)">75 cl</button>
@@ -32320,7 +32344,7 @@ function mkSpiritDetail(s){
 }
 
 let market='belgique', tarif='particulier_ttc';
-let F={region:'',domaine:'',couleur:'',format:''};
+let F={region:'',domaine:'',couleur:'',format:'',millesime:''};
 let filterBio=false;
 let search='', openRef=null;
 let priceRangeMin=0, priceRangeMax=9999;
@@ -32374,6 +32398,7 @@ function matchWine(w){
     if(F.format==='BIG'){if(parseFloat(w.cl)<3)return false;}
     else if(w.cl!==F.format)return false;
   }
+  if(F.millesime&&w.millesime!==F.millesime)return false;
   if(filterBio&&(!w.bio||w.bio==='nan'||!w.bio.trim()))return false;
   // Price range filter
   const p=getPrice(w);
@@ -32496,6 +32521,7 @@ function setTarif(t){tarif=t;document.querySelectorAll('.tc').forEach(b=>b.class
 function setFilter(type,val){
   F[type]=val;
   if(type==='region'){F.domaine='';updateDomDrop(val);}
+  if(type==='millesime'){const ms=document.getElementById('milSel');ms.classList.toggle('on',!!val);}
   document.querySelectorAll(`[data-ft="${type}"]`).forEach(b=>b.classList.toggle('on',b.dataset.fv===val));
   updATags();render();
 }
@@ -32532,6 +32558,7 @@ function updATags(){
   if(F.domaine)tags.push({l:F.domaine,t:'domaine'});
   if(F.couleur)tags.push({l:F.couleur,t:'couleur'});
   if(F.format){const fl={'0.375':'37,5cl','0.75':'75cl','1.5':'Magnum','BIG':'Grand format'};tags.push({l:fl[F.format]||F.format,t:'format'});}
+  if(F.millesime)tags.push({l:'📅 '+F.millesime,t:'millesime'});
   if(filterBio)tags.push({l:'🌿 Bio',t:'bio'});
   const priceActive=priceRangeMin>0||priceRangeMax<9999;
   if(priceActive){const btn=document.querySelector('.prb.on');tags.push({l:btn?btn.textContent:'Budget',t:'price'});}
@@ -32543,12 +32570,12 @@ function removeFilter(type){
   if(type==='search'){search='';document.getElementById('si').value='';document.getElementById('sx').classList.remove('show');}
   else if(type==='bio'){filterBio=false;document.getElementById('bioBtn').classList.remove('on');}
   else if(type==='price'){resetPriceRange();}
-  else{F[type]='';document.querySelectorAll(`[data-ft="${type}"]`).forEach(b=>b.classList.toggle('on',b.dataset.fv===''));if(type==='region'){F.domaine='';updateDomDrop('');}}
+  else{F[type]='';document.querySelectorAll(`[data-ft="${type}"]`).forEach(b=>b.classList.toggle('on',b.dataset.fv===''));if(type==='region'){F.domaine='';updateDomDrop('');}if(type==='millesime'){const ms=document.getElementById('milSel');ms.value='';ms.classList.remove('on');}}
   updATags();render();
 }
 
 function resetAll(){
-  search='';F={region:'',domaine:'',couleur:'',format:''};filterBio=false;
+  search='';F={region:'',domaine:'',couleur:'',format:'',millesime:''};filterBio=false;document.getElementById('milSel').value='';document.getElementById('milSel').classList.remove('on');
   resetPriceRange();
   document.getElementById('si').value='';document.getElementById('sx').classList.remove('show');
   document.getElementById('bioBtn').classList.remove('on');
