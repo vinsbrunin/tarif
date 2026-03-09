@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///Users/julienbrunin/Downloads/tarif_vins_v30.html -->
+<!-- saved from url=(0056)file:///Users/julienbrunin/Downloads/tarif_vins_v31.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -263,6 +263,7 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--t1);fon
     <button class="ch cr" data-ft="couleur" data-fv="Rosé" onclick="setFilter(&#39;couleur&#39;,&#39;Rosé&#39;)">🌸 Rosé</button>
     <button class="ch cbu" data-ft="couleur" data-fv="Bulles" onclick="setFilter(&#39;couleur&#39;,&#39;Bulles&#39;)">🫧 Bulles</button>
     <button class="ch cd" data-ft="couleur" data-fv="Doux" onclick="setFilter(&#39;couleur&#39;,&#39;Doux&#39;)">🍯 Doux</button>
+    <button class="ch" id="saBtn" onclick="toggleSA()">🚫 Sans alcool</button>
   </div>
   <!-- Bio + Format -->
   <div class="fr">
@@ -32345,7 +32346,7 @@ function mkSpiritDetail(s){
 
 let market='belgique', tarif='particulier_ttc';
 let F={region:'',domaine:'',couleur:'',format:'',millesime:''};
-let filterBio=false;
+let filterBio=false, filterSA=false;
 let search='', openRef=null;
 let priceRangeMin=0, priceRangeMax=9999;
 let selection=new Map(); // ref -> wine object
@@ -32400,6 +32401,7 @@ function matchWine(w){
   }
   if(F.millesime&&w.millesime!==F.millesime)return false;
   if(filterBio&&(!w.bio||w.bio==='nan'||!w.bio.trim()))return false;
+  if(filterSA&&w.appellation!=='Sans Alcool')return false;
   // Price range filter
   const p=getPrice(w);
   if(p!==null&&p!==undefined){
@@ -32560,6 +32562,7 @@ function updATags(){
   if(F.format){const fl={'0.375':'37,5cl','0.75':'75cl','1.5':'Magnum','BIG':'Grand format'};tags.push({l:fl[F.format]||F.format,t:'format'});}
   if(F.millesime)tags.push({l:'📅 '+F.millesime,t:'millesime'});
   if(filterBio)tags.push({l:'🌿 Bio',t:'bio'});
+  if(filterSA)tags.push({l:'🚫 Sans alcool',t:'sa'});
   const priceActive=priceRangeMin>0||priceRangeMax<9999;
   if(priceActive){const btn=document.querySelector('.prb.on');tags.push({l:btn?btn.textContent:'Budget',t:'price'});}
   el.classList.toggle('show',tags.length>0);
@@ -32568,14 +32571,14 @@ function updATags(){
 
 function removeFilter(type){
   if(type==='search'){search='';document.getElementById('si').value='';document.getElementById('sx').classList.remove('show');}
-  else if(type==='bio'){filterBio=false;document.getElementById('bioBtn').classList.remove('on');}
+  else if(type==='bio'){filterBio=false;document.getElementById('bioBtn').classList.remove('on');}else if(type==='sa'){filterSA=false;document.getElementById('saBtn').classList.remove('on');}
   else if(type==='price'){resetPriceRange();}
   else{F[type]='';document.querySelectorAll(`[data-ft="${type}"]`).forEach(b=>b.classList.toggle('on',b.dataset.fv===''));if(type==='region'){F.domaine='';updateDomDrop('');}if(type==='millesime'){const ms=document.getElementById('milSel');ms.value='';ms.classList.remove('on');}}
   updATags();render();
 }
 
 function resetAll(){
-  search='';F={region:'',domaine:'',couleur:'',format:'',millesime:''};filterBio=false;document.getElementById('milSel').value='';document.getElementById('milSel').classList.remove('on');
+  search='';F={region:'',domaine:'',couleur:'',format:'',millesime:''};filterBio=false;filterSA=false;document.getElementById('saBtn').classList.remove('on');document.getElementById('milSel').value='';document.getElementById('milSel').classList.remove('on');
   resetPriceRange();
   document.getElementById('si').value='';document.getElementById('sx').classList.remove('show');
   document.getElementById('bioBtn').classList.remove('on');
@@ -32595,6 +32598,12 @@ document.getElementById('si').addEventListener('input',function(){
 function toggleBio(){
   filterBio=!filterBio;
   document.getElementById('bioBtn').classList.toggle('on',filterBio);
+  updATags();render();
+}
+
+function toggleSA(){
+  filterSA=!filterSA;
+  document.getElementById('saBtn').classList.toggle('on',filterSA);
   updATags();render();
 }
 
