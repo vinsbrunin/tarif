@@ -362,6 +362,9 @@ function setTab(tab){
   document.getElementById('priceWines').style.display = isVins?'':'none';
   document.getElementById('priceSpirits').style.display = isVins?'none':'';
   document.getElementById('pill').textContent = '— '+(isVins?'vins':'spirits');
+  // Masquer le dropdown domaines et la recherche vins en mode spirits
+  document.getElementById('domSel').style.display = isVins?'':'none';
+  document.getElementById('si').placeholder = isVins?'Domaine, appellation, cuvée…':'Maison, catégorie, produit…';
   if(!isVins) initSpiritsFilters();
   render();
 }
